@@ -1,0 +1,33 @@
+<%
+=begin%>
+ <h1>Urls#new</h1>
+<%= form_with model: @url do |form| %>
+  <p>Enter Url: <%= form.text_field :longurl %></p>
+  <%= form.submit %>
+<% end %> 
+<%
+=end%>
+
+<h1>URL Shortening</h1>
+
+<%= form_with model: @url do |form| %>
+
+<div>
+    <p>Enter Long Url: </p>
+    <%= form.text_field :longurl%>
+    <% @url.errors.full_messages_for(:longurl).each do |message| %>
+    <div><%= message %></div>
+    <% end %>
+</div>
+
+<div>
+    <p>Enter Base Url: </p>
+    <%= form.text_field :baseurl %>
+</div>
+
+
+<div>
+    <%= form.submit %>
+</div>
+
+<% end %>
